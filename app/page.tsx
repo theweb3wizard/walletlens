@@ -88,13 +88,13 @@ export default function HomePage() {
 
   // Refresh usage count after each analysis completes
   useEffect(() => {
-    if (!loading && usage) {
-      fetch("/api/usage")
-        .then((r) => r.json())
-        .then(setUsage)
-        .catch(() => {});
-    }
-  }, [loading]);
+  if (!loading) {
+    fetch("/api/usage")
+      .then((r) => r.json())
+      .then(setUsage)
+      .catch(() => {});
+  }
+}, [loading]);
 
   const stats = [
     {
