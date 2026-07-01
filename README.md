@@ -72,7 +72,7 @@ cd walletlens
 npm install
 
 # Copy environment variables
-cp .env.local.example .env.local
+cp .env.example .env.local
 ```
 
 ### Environment Variables

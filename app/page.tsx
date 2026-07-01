@@ -6,10 +6,10 @@ import {
   Search,
   Zap,
   Shield,
-  Brain,
-  TrendingUp,
   ChevronRight,
   Globe,
+  Activity,
+  Cpu,
 } from "lucide-react";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { CHAINS } from "@/constants";
@@ -22,29 +22,29 @@ const SAMPLE_WALLETS = [
   "0xBE0eB53F46cd790Cd13851d5EFf43D12404d33E8",
 ];
 
-const FEATURES = [
+const PROJECTS = [
   {
-    icon: Brain,
-    title: "AI Intelligence",
-    desc: "Groq AI reads your wallet's entire history and generates a plain-English report in seconds.",
-    color: "#6366F1",
+    icon: Activity,
+    title: "SolPulse",
+    desc: "Real-time Solana tracking and cluster monitoring. Live validator health, mempool flow, and on-chain activity — built for traders and operators.",
+    color: "#9945FF",
   },
   {
-    icon: Shield,
-    title: "Risk Scoring",
-    desc: "Every wallet gets a 0–100 risk score based on behavior patterns, token exposure, and activity.",
+    icon: Cpu,
+    title: "Valor",
+    desc: "Low-latency AI agent framework for on-chain execution. Autonomous market analysis and smart-contract interaction with sub-second decision loops.",
     color: "#06B6D4",
   },
   {
-    icon: TrendingUp,
-    title: "Portfolio Breakdown",
-    desc: "Token balances, USD values, NFT holdings, and portfolio concentration — all in one view.",
+    icon: Shield,
+    title: "TxPreview",
+    desc: "On-chain transaction security layer. Simulate any transaction before signing — catch sandwich attacks, slippage surprises, and malicious approvals.",
     color: "#10B981",
   },
   {
     icon: Globe,
-    title: "Shareable Reports",
-    desc: "Every analysis gets a unique URL. Share wallet intelligence with anyone instantly.",
+    title: "WalletLens",
+    desc: "AI-powered EVM wallet intelligence. Paste any address for an instant risk score, portfolio breakdown, and behavioral analysis.",
     color: "#F59E0B",
   },
 ];
@@ -167,20 +167,24 @@ export default function HomePage() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo/30 bg-indigo/10 text-indigo-glow text-sm font-mono mb-8">
             <Zap size={12} />
-            Powered by Groq AI + Moralis
+            Product Engineer · Full-Stack Web3 Engineer · Frontend Web3 Engineer
           </div>
 
           <h1 className="font-display text-5xl md:text-7xl font-800 leading-none tracking-tight text-white mb-6 max-w-4xl">
-            Decode Any{" "}
-            <span className="text-gradient-indigo">EVM Wallet</span>
+            High-Execution{" "}
+            <span className="text-gradient-indigo">Full-Stack</span>
             <br />
-            In Seconds.
+            Web3 Engineering
           </h1>
 
-          <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
-            Paste any wallet address. WalletLens fetches the on-chain data,
-            runs AI analysis, and delivers a full intelligence report — risk
-            score, portfolio breakdown, behavioral patterns and more.
+          <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-6 leading-relaxed">
+            AI-native orchestration to compress development cycles.
+            I independently own the entire loop — from data and
+            smart-contract plumbing to responsive UI.
+          </p>
+
+          <p className="text-sm text-muted font-mono mb-12 max-w-2xl mx-auto">
+            SolPulse · Valor · TxPreview · WalletLens
           </p>
         </motion.div>
 
@@ -355,7 +359,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Features */}
+      {/* Projects */}
       <section className="relative z-10 px-6 md:px-12 pb-24 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -364,17 +368,17 @@ export default function HomePage() {
           className="text-center mb-12"
         >
           <h2 className="font-display text-3xl md:text-4xl font-700 text-white mb-4">
-            Everything you need to{" "}
-            <span className="text-gradient-cyan">understand any wallet</span>
+            Selected{" "}
+            <span className="text-gradient-cyan">Projects</span>
           </h2>
           <p className="text-muted max-w-xl mx-auto">
-            No more switching between Etherscan, DeBank, and spreadsheets.
-            WalletLens brings it all together with AI on top.
+            End-to-end ownership. Each project ships the full stack — 
+            from protocol-level plumbing to polished frontend.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {FEATURES.map((f, i) => (
+          {PROJECTS.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -386,16 +390,16 @@ export default function HomePage() {
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
                 style={{
-                  backgroundColor: `${f.color}20`,
-                  border: `1px solid ${f.color}40`,
+                  backgroundColor: `${p.color}20`,
+                  border: `1px solid ${p.color}40`,
                 }}
               >
-                <f.icon size={18} style={{ color: f.color }} />
+                <p.icon size={18} style={{ color: p.color }} />
               </div>
               <h3 className="font-display font-600 text-white text-lg mb-2">
-                {f.title}
+                {p.title}
               </h3>
-              <p className="text-muted text-sm leading-relaxed">{f.desc}</p>
+              <p className="text-muted text-sm leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -415,15 +419,7 @@ export default function HomePage() {
           Read-only · No wallet connection · Data via Moralis · AI via Groq
         </p>
         <p className="text-xs text-muted font-mono">
-          Built by{" "}
-          <a
-            href="https://twitter.com/theweb3wizard"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-indigo-glow hover:text-white transition-colors"
-          >
-            The Web3 Wizard
-          </a>
+          Product Engineer · High-Execution Full-Stack Web3
         </p>
       </footer>
     </main>

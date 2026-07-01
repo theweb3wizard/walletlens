@@ -16,9 +16,14 @@ export async function GET(
       .from("analyses")
       .select("*")
       .eq("slug", slug)
-      .single();
+      .maybeSingle();
 
-    if (error || !data) {
+    if (error) {
+      console.error("Supabase report fetch error:", error);
+      return NextResponse.json({ error: "Failed to fetch report." }, { status: 500 });
+    }
+
+    if (!data) {
       return NextResponse.json({ error: "Report not found." }, { status: 404 });
     }
 

@@ -24,13 +24,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WalletLens — AI-Powered Wallet Intelligence",
+  title: "Product Engineer · Full-Stack Web3 Engineer · Portfolio",
   description:
-    "Paste any EVM wallet address and get an instant AI-generated intelligence report. Token holdings, NFTs, transaction history, risk score and more.",
-  keywords: ["crypto", "wallet", "blockchain", "AI", "DeFi", "ethereum", "analysis"],
+    "High-execution full-stack Web3 engineering. AI-native orchestration across the entire stack — from smart contracts to responsive UI. SolPulse, Valor, TxPreview, WalletLens.",
+  keywords: ["product engineer", "full-stack web3", "frontend web3", "solana", "ethereum", "AI", "blockchain"],
   openGraph: {
-    title: "WalletLens — AI-Powered Wallet Intelligence",
-    description: "Instant AI analysis for any EVM wallet.",
+    title: "Product Engineer · Full-Stack Web3 Engineer",
+    description: "High-execution full-stack Web3 engineering. AI-native orchestration — from smart contracts to responsive UI.",
     type: "website",
   },
 };

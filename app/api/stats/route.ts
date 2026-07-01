@@ -3,9 +3,11 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET() {
   try {
-    const { count } = await supabaseAdmin
+    const { count, error } = await supabaseAdmin
       .from("analyses")
       .select("*", { count: "exact", head: true });
+
+    if (error) throw error;
 
     return NextResponse.json({ count: count || 0 });
   } catch {

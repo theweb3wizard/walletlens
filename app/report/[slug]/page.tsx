@@ -10,7 +10,6 @@ import {
   ExternalLink,
   Share2,
   AlertTriangle,
-  Loader2,
   Twitter,
 } from "lucide-react";
 import { WalletAnalysis } from "@/types";
@@ -22,6 +21,7 @@ import NFTGrid from "@/components/analysis/NFTGrid";
 import TxFeed from "@/components/analysis/TxFeed";
 import RiskGauge from "@/components/analysis/RiskGauge";
 import AIReport from "@/components/analysis/AIReport";
+import ReportSkeleton from "@/components/analysis/ReportSkeleton";
 
 export default function ReportPage() {
   const params = useParams();
@@ -72,22 +72,7 @@ export default function ReportPage() {
   const risk = data ? getRiskLevel(data.risk_score) : null;
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-void flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="w-12 h-12 rounded-2xl bg-indigo/20 border border-indigo/30 flex items-center justify-center">
-            <Loader2 size={20} className="text-indigo animate-spin" />
-          </div>
-          <p className="text-muted font-mono text-sm">
-            Loading intelligence report...
-          </p>
-        </motion.div>
-      </div>
-    );
+    return <ReportSkeleton />;
   }
 
   if (error || !data) {
