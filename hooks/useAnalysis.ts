@@ -11,11 +11,10 @@ export function useAnalysis() {
 
   const stages = [
     "Connecting to blockchain...",
-    "Fetching token balances...",
-    "Scanning NFT holdings...",
-    "Analyzing transaction history...",
-    "Running AI analysis...",
-    "Generating intelligence report...",
+    "Fetching token approvals...",
+    "Scanning transaction history...",
+    "Running AI security analysis...",
+    "Generating audit report...",
   ];
 
   async function analyze(wallet_address: string, chain: Chain) {
@@ -32,7 +31,7 @@ export function useAnalysis() {
     const stageInterval = setInterval(() => {
       stageIndex = (stageIndex + 1) % stages.length;
       setStage(stages[stageIndex]);
-    }, 2500);
+    }, 3000);
 
     try {
       const res = await fetch("/api/analyze", {
@@ -49,9 +48,11 @@ export function useAnalysis() {
 
       clearInterval(stageInterval);
       router.push(`/report/${data.slug}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       clearInterval(stageInterval);
-      setError(err.message || "Something went wrong. Please try again.");
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
       setLoading(false);
       setStage("");
     }

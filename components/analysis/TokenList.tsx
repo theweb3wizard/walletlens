@@ -48,6 +48,7 @@ export default function TokenList({ tokens }: Props) {
                   alt={token.symbol}
                   width={32}
                   height={32}
+                  unoptimized
                   className="rounded-full"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";

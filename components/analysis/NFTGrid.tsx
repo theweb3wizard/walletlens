@@ -39,6 +39,7 @@ export default function NFTGrid({ nfts }: Props) {
                   src={nft.collection_logo}
                   alt={nft.name || "NFT"}
                   fill
+                  unoptimized
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
